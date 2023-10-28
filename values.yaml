@@ -1,0 +1,37 @@
+controller:
+  replicaCount: 2 # 多副本
+  image:   #controller镜像地址
+    repository: swr.cn-south-1.myhuaweicloud.com/hwofficial/nginx-ingress   #请根据集群所在区域进行替换
+    registry: ""
+    image: ""
+    tag: "v1.2.1"
+    digest: ""
+  ingressClassResource:
+    name: myingress3
+    controllerValue: "k8s.io/ingress-nginx-myingress3"
+  ingressClass: myingress3
+  service: 
+    annotations: {
+    kubernetes.io/elb.id: 7e7bd3ea-c6c1-4741-91e5-7561643e50b7     #ELB ID
+    }
+  config: {
+    "keep-alive-requests": "100"
+  }
+  electionID: myingress3
+  admissionWebhooks:
+    patch:
+      image:
+        repository: swr.cn-south-1.myhuaweicloud.com/hwofficial/kube-webhook-certgen    #该地址为国外镜像源，可能正常无法拉取，请自行替换。
+        tag: v1.1.1
+        digest: ""
+  resources:
+    requests:
+      cpu: 200m
+      memory: 200Mi
+defaultBackend: 
+  image:   #defaultBackend镜像地址
+    repository: swr.cn-south-1.myhuaweicloud.com/hwofficial/defaultbackend     #请根据集群所在区域进行替换
+    tag: "1.5"
+    digest: ""
+imagePullSecrets:
+  - name: default-secret
