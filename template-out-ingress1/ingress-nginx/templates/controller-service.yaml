@@ -16,7 +16,7 @@ metadata:
   name: ingress1-ingress-nginx-controller
   namespace: myingress
 spec:
-  type: LoadBalancer
+  type: NodePort
   ipFamilyPolicy: SingleStack
   ipFamilies: 
     - IPv4
@@ -26,11 +26,13 @@ spec:
       protocol: TCP
       targetPort: http
       appProtocol: http
+      nodePort: 32080
     - name: https
       port: 443
       protocol: TCP
       targetPort: https
       appProtocol: https
+      nodePort: 32443
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress1

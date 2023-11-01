@@ -19,7 +19,7 @@ spec:
       app.kubernetes.io/name: ingress-nginx
       app.kubernetes.io/instance: ingress1
       app.kubernetes.io/component: controller
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 10
   minReadySeconds: 0
   template:
@@ -34,7 +34,7 @@ spec:
         - name: default-secret
       containers:
         - name: controller
-          image: "swr.cn-south-1.myhuaweicloud.com/hwofficial/nginx-ingress:v1.2.1"
+          image: "anjia0532/google-containers.ingress-nginx.controller:v1.1.1"
           imagePullPolicy: IfNotPresent
           lifecycle: 
             preStop:
