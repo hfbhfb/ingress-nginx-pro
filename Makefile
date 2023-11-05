@@ -23,6 +23,9 @@ install:
 uninstall:
 	helm uninstall  --namespace  ${Space}  ${helmAppName}
 
+download:
+	wget https://github.com/kubernetes/ingress-nginx/releases/download/helm-chart-4.1.3/ingress-nginx-4.1.3.tgz
+
 testapp:
 	bash test-ingress.sh
 testappclean:
