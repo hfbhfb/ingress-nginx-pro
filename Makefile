@@ -26,9 +26,13 @@ uninstall:
 download:
 	wget https://github.com/kubernetes/ingress-nginx/releases/download/helm-chart-4.1.3/ingress-nginx-4.1.3.tgz
 
-testapp:
-	bash test-ingress.sh
-testappclean:
-	export clean="true" && bash test-ingress.sh
+test1:
+	# bash test-ingress.sh
+	kubectl apply -f test1.yaml
+	@echo "testinga.com 域名指向集群任意节点， 32080 端口是指向ingress controller的svc（nodeport）"
+	@echo "访问： curl http://testinga.com:32080"
+clean1:
+	#export clean="true" && bash test-ingress.sh
+	kubectl apply -f test1.yaml
 
 	
