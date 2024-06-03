@@ -1,4 +1,6 @@
+
 controller:
+  hostNetwork: true
   replicaCount: 1 # 多副本
   image:   #controller镜像地址
     repository: anjia0532/google-containers.ingress-nginx.controller   #请根据集群所在区域进行替换
@@ -41,3 +43,5 @@ defaultBackend:
     digest: ""
 imagePullSecrets:
   - name: default-secret
+
+
