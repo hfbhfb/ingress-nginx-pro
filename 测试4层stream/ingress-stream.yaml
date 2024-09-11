@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: streamtest
+  annotations:
+    nginx.ingress.kubernetes.io/stream-snippet: |
+      server {
+        listen 8761;
+        proxy_pass 10.0.230.164:80;
+      }
+spec:
+  ingressClassName: myingress3
+  rules:
+    - host: holdaaa.com
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: vscode-code-server-a
+                port:
+                  number: 80
+            path: /
+# 

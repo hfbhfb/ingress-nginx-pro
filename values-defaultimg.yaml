@@ -3,7 +3,7 @@ controller:
   hostNetwork: true #使用主机网络
   replicaCount: 1 # 多副本
   image:   #controller镜像地址
-    repository: swr.cn-north-4.myhuaweicloud.com/hfbbg4/google-containers.ingress-nginx.controller   #请根据集群所在区域进行替换
+    repository: anjia0532/google-containers.ingress-nginx.controller   #请根据集群所在区域进行替换
     registry: ""
     image: ""
     tag: "v1.1.1"
@@ -29,7 +29,7 @@ controller:
   admissionWebhooks:
     patch:
       image:
-        repository: swr.cn-north-4.myhuaweicloud.com/hfbbg4/google-containers.ingress-nginx.kube-webhook-certgen    #该地址为国外镜像源，可能正常无法拉取，请自行替换。
+        repository: anjia0532/google-containers.ingress-nginx.kube-webhook-certgen    #该地址为国外镜像源，可能正常无法拉取，请自行替换。
         tag: v1.1.1
         digest: ""
   resources:
@@ -38,7 +38,7 @@ controller:
       memory: 200Mi
 defaultBackend: 
   image:   #defaultBackend镜像地址
-    repository: swr.cn-north-4.myhuaweicloud.com/hfbbg4/defaultbackend      #请根据集群所在区域进行替换
+    repository: anjia0532/defaultbackend      #请根据集群所在区域进行替换
     tag: "1.1"
     digest: ""
 imagePullSecrets:

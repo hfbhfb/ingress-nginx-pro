@@ -9,6 +9,31 @@ kubectl get deploy -n myingress -oyaml|grep host
 kubectl get po -n myingress -owide
 
 
+
+## 搜索
+测试4层stream                               32434sdkjfh
+
+
+
+
+## 镜像处理
+docker pull anjia0532/google-containers.ingress-nginx.controller:v1.1.1
+docker tag anjia0532/google-containers.ingress-nginx.controller:v1.1.1 swr.cn-north-4.myhuaweicloud.com/hfbbg4/google-containers.ingress-nginx.controller:v1.1.1
+docker push swr.cn-north-4.myhuaweicloud.com/hfbbg4/google-containers.ingress-nginx.controller:v1.1.1
+
+docker pull anjia0532/google-containers.ingress-nginx.kube-webhook-certgen:v1.1.1
+docker tag anjia0532/google-containers.ingress-nginx.kube-webhook-certgen:v1.1.1 swr.cn-north-4.myhuaweicloud.com/hfbbg4/google-containers.ingress-nginx.kube-webhook-certgen:v1.1.1
+docker push swr.cn-north-4.myhuaweicloud.com/hfbbg4/google-containers.ingress-nginx.kube-webhook-certgen:v1.1.1
+
+docker pull anjia0532/defaultbackend:1.1
+docker tag anjia0532/defaultbackend:1.1 swr.cn-north-4.myhuaweicloud.com/hfbbg4/defaultbackend:1.1
+docker push swr.cn-north-4.myhuaweicloud.com/hfbbg4/defaultbackend:1.1
+
+
+
+
+
+
 ## 测试0
 make test1
 kubectl get po -owide|grep testinga
